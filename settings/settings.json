@@ -1,0 +1,23 @@
+{
+  "api_endpoint": "https://api.openweathermap.org/data/2.5",
+  "url" : "https://openweathermap.org",
+  "type": "local",
+
+  "local": {
+    "browser": "chrome"
+  },
+
+  "remote": {
+    "remote_url": "http://127.0.0.1:4444/wd/hub" ,
+    "browser": "chrome"
+  },
+
+  "cloud": {
+    "cloud_host" : "https://{}:{}@hub-cloud.browserstack.com/wd/hub",
+    "os" : "WINDOWS",
+    "os_version": "10",
+    "resolution": "1920x1080",
+    "browser": "chrome",
+    "browser_version": "86.0 beta"
+  }
+}
