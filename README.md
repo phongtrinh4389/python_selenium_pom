@@ -12,19 +12,19 @@ This project is a simple automation framework using pytest, selenium, api
 - Open the cmd from the root folder then follow the below setting to run the test
 - Specific arguments should be passed from command-line. If these has not been passed, the params will be passed from 
 settings.json file
-* browser (optional) [chrome, firefox]
-* running_type (optional) [local, cloud, remote]
+   * browser (optional) [chrome, firefox]
+   * running_type (optional) [local, cloud, remote]
 
 ## 3.1 Run API tests
 `pytest -q --disable-warnings tests\api\`
 
 ## 3.2 Run UI tests (Local)
-Under ./settings/ folder, edit the settings.json file with: "type": "local"
-`pytest -q --disable-warnings --browser chrome --running_type local tests\ui\`
+Under ./settings/ folder, edit the settings.json file with: "type": "local"\
+`pytest -q --disable-warnings --browser chrome --running_type local tests\ui\`\
 Notes: browser(optional) = [chrome, firefox]. Otherwise, the browser param will be passed from the settings.json file
 
 ## 3.3 Run UI tests (Cloud - Browserstack)
-Under ./settings/ folder, edit the settings.json file with: "type": "cloud"
+Under ./settings/ folder, edit the settings.json file with: "type": "cloud"\
 `pytest -q --disable-warnings --browser chrome --running_type cloud tests\ui\`
 
 ## 3.3 Run UI tests (Distributed test - Grid)
