@@ -39,7 +39,7 @@ def local_driver():
     elif browser.lower() == "chrome":
         return webdriver.Chrome(ChromeDriverManager().install())
     else:
-        raise Exception(f"Browser [{browser}] hasn't been implemented")
+        raise Exception(f"Browser [{browser}] has not been implemented")
 
 
 def remote_driver():
@@ -55,16 +55,21 @@ def remote_driver():
         return webdriver.Remote(command_executor=settings['remote']['remote_url'],
                                 desired_capabilities=DesiredCapabilities.CHROME)
     else:
-        raise Exception(f"Browser [{browser}] hasn't been implemented")
+        raise Exception(f"Browser [{browser}] has not been implemented")
 
 
 class DriverHandler:
     __driver = None
 
     def __init__(self):
-        if settings['type'] == 'remote':
+        if os.environ.get('running_type') is None:
+            running_type = str(settings['running_type']).lower()
+        else:
+            running_type = os.getenv('running_type')
+
+        if running_type == 'remote':
             self.__driver = remote_driver()
-        elif settings['type'] == 'cloud':
+        elif running_type == 'cloud':
             self.__driver = cloud_driver()
         else:
             self.__driver = local_driver()

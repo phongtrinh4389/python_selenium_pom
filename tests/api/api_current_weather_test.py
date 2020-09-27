@@ -1,9 +1,6 @@
 import pytest
-import requests
 import json
-from settings.config import settings
 from tests.api.api_base import CurrentWeatherAPI
-from utility.filepath import get_secure_var
 from test_data.data_loader import searched_location_data_list
 from api_schema.current_weather_api_schema import CURRENT_WEATHER_SCHEMA
 from jsonschema import validate

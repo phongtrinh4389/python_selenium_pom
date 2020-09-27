@@ -1,9 +1,6 @@
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
-from settings.config import settings
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 
 WAIT_ELEMENT_CONDITION_TIMEOUT = 30
@@ -28,15 +25,15 @@ class DriverMethod:
 
     def wait_until_element_present(self, locator, timeout=WAIT_ELEMENT_CONDITION_TIMEOUT):
         wait = WebDriverWait(self.driver, timeout)
-        return wait.until(EC.presence_of_element_located(locator))
+        return wait.until(ec.presence_of_element_located(locator))
 
     def wait_until_elements_present(self, locator, timeout=WAIT_ELEMENT_CONDITION_TIMEOUT):
         wait = WebDriverWait(self.driver, timeout)
-        return wait.until(EC.presence_of_all_elements_located(locator))
+        return wait.until(ec.presence_of_all_elements_located(locator))
 
     def wait_until_element_visible(self, locator, timeout=WAIT_ELEMENT_CONDITION_TIMEOUT):
         wait = WebDriverWait(self.driver, timeout)
-        return wait.until(EC.visibility_of_element_located(locator))
+        return wait.until(ec.visibility_of_element_located(locator))
 
     def click(self, locator):
         element = self.wait_until_element_present(locator)

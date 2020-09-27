@@ -1,9 +1,6 @@
-import sys
 import os
-import tarfile
 import rootpath
 from dotenv import load_dotenv
-import json
 
 
 def get_root_directory():
@@ -27,10 +24,10 @@ def file_exists(file_path):
     return os.path.isfile(file_path)
 
 
-def dir_exists(dir):
-    return os.path.isdir(dir)
+def dir_exists(directory):
+    return os.path.isdir(directory)
 
 
-def create_dir(dir):
-    if not dir_exists(dir):
-        os.makedirs(dir)
+def create_dir(directory):
+    if not dir_exists(directory):
+        os.makedirs(directory)

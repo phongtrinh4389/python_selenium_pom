@@ -1,9 +1,11 @@
 selenium~=3.141.0
-pytest~=6.0.2
-requests
+pytest~=6.1.0
+requests~=2.24.0
 webdriver-manager~=3.2.2
 Unidecode~=1.1.1
 pytest-xdist~=2.1.0
 allure-pytest
 pytest-parallel~=0.1.0
 jsonschema~=3.2.0
+rootpath~=0.1.1
+python-dotenv~=0.14.0

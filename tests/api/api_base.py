@@ -1,7 +1,4 @@
-import json
-
 import requests
-
 from settings.config import settings
 from utility.filepath import get_secure_var
 
@@ -32,10 +29,3 @@ class CurrentWeatherAPI:
 
         return requests.get(self.CURRENT_WEATHER_BY_CITY_NAME_END_POINT, params=params)
 
-import re
-
-pattern = r"[-+]?\d*\.\d+|\d+°С temperature from [-+]?\d*\.\d+||\d+ to \d+ °С, " \
-          r"wind [-+]?\d*\.\d+|\d+ m\/s\. clouds [-+]?\d*\.\d+|\d+ %, [-+]?\d*\.\d+|\d+ hpa"
-weather_detail = '27°С temperature from 27.1 to 27 °С, wind 3.1 m/s. clouds 75 %, 1009 hpa'
-print(weather_detail)
-assert re.match(pattern, weather_detail), "The Weather detail format is not correct"

@@ -1,16 +1,9 @@
-import json
 import re
-
 import pytest
-import time
-import requests
 
-from tests.api.api_base import CurrentWeatherAPI
 from tests.ui.conftest import BaseTest
-from pages.weather_search_results_page import SearchResultsPage
 from pages.top_menu_page import TopMenuPage
 from test_data.data_loader import searched_location_data_list
-from utility.filepath import get_secure_var
 
 
 class TestSearchWeatherSuccess(BaseTest):
@@ -36,7 +29,6 @@ class TestSearchWeatherSuccess(BaseTest):
             pattern = r"[-+]?\d*\.\d+||\d+°С temperature from [-+]?\d*\.\d+||\d+ to [-+]?\d*\.\d+||\d+ °С, " \
                       r"wind [-+]?\d*\.\d+||\d+ m\/s\. clouds [-+]?\d*\.\d+||\d+ %, [-+]?\d*\.\d+||\d+ hpa"
             weather_detail = result['weather_details']
-            print(weather_detail)
             assert re.match(pattern, weather_detail), "The Weather detail format is not correct"
 
             # Verify the coord format
